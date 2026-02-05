@@ -1,0 +1,807 @@
+/* DaCapo Design Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary: #2860E0;
+  --primary-hover: #1C4DAB;
+  --primary-light: #EBF1FF;
+
+  /* Light Mode Semantics */
+  --bg-app: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #F1F5F9;
+  --bg-surface-elevated: #FFFFFF;
+
+  --text-primary: #1a1a2e;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-on-primary: #FFFFFF;
+
+  --border-default: #E2E8F0;
+  --border-strong: #94A3B8;
+
+  /* Accents */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --shadow-elevated: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.06);
+
+  /* Elevation aliases */
+  --bg-elev-1: var(--bg-surface);
+  --bg-elev-2: var(--bg-surface-elevated);
+  --bg-elev-3: var(--bg-surface-hover);
+
+  /* Pastel tile gradients */
+  --tile-pastel-1: linear-gradient(135deg, #E0E7FF 0%, #EEF2FF 100%);
+  --tile-pastel-2: linear-gradient(135deg, #F3E8FF 0%, #FAF5FF 100%);
+  --tile-pastel-3: linear-gradient(135deg, #CCFBF1 0%, #E6FFFA 100%);
+  --tile-pastel-4: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 100%);
+  --tile-pastel-5: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
+  --tile-pastel-6: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%);
+
+  /* Font families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-accent: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #2F6BFF;
+    --primary-hover: #2458D6;
+    --primary-light: rgba(47, 107, 255, 0.15);
+
+    --bg-app: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-surface-elevated: #334155;
+    --bg-surface-hover: #475569;
+
+    --bg-elev-1: var(--bg-surface);
+    --bg-elev-2: var(--bg-surface-elevated);
+    --bg-elev-3: var(--bg-surface-hover);
+
+    --border-default: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.45);
+
+    --success: #2DD4BF;
+
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-elevated: 0 20px 40px rgba(0, 0, 0, 0.5);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+    /* Dark pastel variants */
+    --tile-pastel-1: linear-gradient(135deg, #312e81 0%, #3730a3 100%);
+    --tile-pastel-2: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+    --tile-pastel-3: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+    --tile-pastel-4: linear-gradient(135deg, #14532d 0%, #166534 100%);
+    --tile-pastel-5: linear-gradient(135deg, #713f12 0%, #854d0e 100%);
+    --tile-pastel-6: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+  }
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg-app) 0%, var(--primary-light) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile touch target size */
+@media (max-width: 768px) {
+
+  button,
+  a {
+    min-height: 44px;
+  }
+}
+
+/* ======================== */
+/* TILE LAYOUT CLASSES      */
+/* ======================== */
+
+/* Page Background - Clean white */
+.pageBackground {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Page wrapper */
+.pageWrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Tight section spacing */
+.lvoSection {
+  padding-top: 1.5rem;
+  padding-bottom: 0;
+  margin-bottom: 24px;
+}
+
+.heroSection {
+  margin-bottom: 20px;
+}
+
+.mainContent {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+/* Hero Animated Border Glow - Green theme, always animated */
+.heroBorderGlow {
+  position: relative;
+  background: #ffffff;
+  border-radius: inherit;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.heroBorderGlow::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(120deg,
+      #16a34a,
+      #86efac,
+      #ffffff,
+      #86efac,
+      #16a34a);
+  background-size: 300% 300%;
+  animation: heroBorder 12s linear infinite;
+  z-index: -1;
+  transition: filter 0.2s ease;
+}
+
+.heroBorderGlow::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #ffffff;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Hover = micro accent only, no animation trigger */
+.heroBorderGlow:hover {
+  transform: translateY(-2px);
+}
+
+.heroBorderGlow:hover::before {
+  filter: brightness(1.05);
+}
+
+@keyframes heroBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 150% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* Respect reduced motion for hero glow */
+@media (prefers-reduced-motion: reduce) {
+  .heroBorderGlow::before {
+    animation: none;
+  }
+}
+
+/* LVO CTA Optical Lift */
+.lvoRaise {
+  transform: translateY(-48px);
+  margin-bottom: -24px;
+}
+
+/* Hero Split Layout - Tight spacing */
+.heroSplit {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  .heroSplit {
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem 3rem;
+    align-items: center;
+    min-height: 200px;
+    max-height: 260px;
+  }
+}
+
+/* Hero Card - No blur, solid background */
+.heroCard {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid var(--border-default);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.heroCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+@media (prefers-color-scheme: dark) {
+  .heroCard {
+    background: rgba(30, 41, 59, 0.7);
+  }
+}
+
+@media (min-width: 768px) {
+  .heroCard {
+    padding: 2rem;
+  }
+}
+
+/* Hero Title Card (left) */
+.heroTitle {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.heroTitle h1 {
+  font-family: var(--font-accent);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .heroTitle h1 {
+    font-size: 1.65rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle h1 {
+    font-size: 1.85rem;
+  }
+}
+
+/* Hero Intro Card (right) */
+.heroIntro {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.heroIntro p {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 420px;
+}
+
+@media (min-width: 768px) {
+  .heroIntro p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Start CTA Card - Unified Green Theme */
+.startCard {
+  display: block;
+  background: #f6fdf9;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: var(--shadow-glass);
+  transition: all 220ms ease;
+  cursor: pointer;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* LVO Inner - Centered flex container */
+.lvoInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .lvoInner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* Paco image container */
+.lvoPaco {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+}
+
+.lvoPaco img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LVO Content - Centered text block */
+.lvoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 520px;
+}
+
+.lvoContent h2,
+.lvoContent p {
+  text-align: center;
+}
+
+.startCard:hover {
+  background: #ecfdf5;
+  border-color: #22c55e;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* LVO Title - Hero anchor, large orange */
+.lvoTitle {
+  color: #f97316 !important;
+  font-family: var(--font-accent);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.startCard p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Start Button - Always Green */
+.startCard .ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  color: #111827;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.625rem;
+  font-family: var(--font-accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 220ms ease;
+  position: relative;
+  z-index: 1;
+}
+
+.startCard:hover .ctaBtn {
+  background: #bbf7d0;
+  transform: scale(1.03);
+}
+
+/* CTA Focus Stack - Updated for green theme */
+.ctaFocus {
+  position: relative;
+  animation: ctaSlideIn 420ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Spotlight gradient behind CTA - green tint */
+.ctaFocus::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Soft pulse ring - green */
+.ctaFocus::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 0.625rem;
+  background: radial-gradient(circle, rgba(187, 247, 208, 0.5) 0%, transparent 70%);
+  animation: ctaPulse 2400ms ease-out 300ms 2 forwards;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Micro slide keyframe */
+@keyframes ctaSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse ring keyframe */
+@keyframes ctaPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ctaFocus {
+    animation: none;
+  }
+
+  .ctaFocus::after {
+    animation: none;
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .startCard {
+    padding: 2.5rem 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .startCard h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Section Title Pill - Orange theme */
+.sectionPill {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.sectionPill span {
+  display: inline-block;
+  background: #fff7ed;
+  border: 2px solid #f97316;
+  border-radius: 999px;
+  padding: 0.625rem 1.375rem;
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.02em;
+  cursor: default;
+  transition: background 0.18s ease;
+}
+
+.sectionPill span:hover {
+  background: #ffedd5;
+}
+
+/* Section Intro - Mini description */
+.sectionIntro {
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Tile Grid - CSS Grid FORCED 3 columns */
+.tileGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .tileGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .tileGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tile Card */
+.tileCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-default);
+  border-radius: 1.125rem;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-height: 240px;
+}
+
+.tileCard:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Tile Header (pastel gradient with title) */
+.tileHeader {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem 1.25rem 0.75rem;
+}
+
+.tileHeader h3 {
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  z-index: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tileHeader h3 {
+    color: #FFFFFF;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Tile Footer - Bottom-right CTA container */
+.tileFooter {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem 1rem;
+}
+
+/* Tile CTA Button */
+.tileCTA {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-default);
+  border-radius: 999px;
+  padding: 0.375rem 0.875rem;
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.15s ease;
+}
+
+.tileCTA .arrow {
+  transition: transform 0.15s ease;
+}
+
+.tileClickable:hover .tileCTA {
+  background: var(--bg-elev-2);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.tileClickable:hover .tileCTA .arrow {
+  transform: translateX(2px);
+}
+
+/* Tile Number - Grid column */
+.tileNumber {
+  font-family: var(--font-accent);
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--tile-accent, var(--primary));
+  line-height: 1;
+  margin-top: -4px;
+  position: relative;
+  z-index: 3;
+}
+
+/* Tile Clickable - Enhanced hover */
+.tileClickable {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-default);
+  border-radius: 1.125rem;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  min-height: 260px;
+  position: relative;
+}
+
+.tileClickable:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--primary-light);
+}
+
+.tileClickable:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Tile Body Grid - Number + Divider + Content */
+.tileBodyGrid {
+  display: grid;
+  grid-template-columns: 64px 1px 1fr;
+  column-gap: 12px;
+  align-items: flex-start;
+  padding: 0.75rem 1rem 1rem;
+  flex: 1;
+}
+
+/* Tile Divider - Vertical line */
+.tileDivider {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      var(--tile-accent, var(--primary)),
+      transparent);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* Tile Content - Right column */
+.tileContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.tileContent p:first-child {
+  margin-top: 0;
+}
+
+/* Tile Description - LARGER, 4 lines */
+.tileDesc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Mobile: Stack number above content */
+@media (max-width: 768px) {
+  .tileBodyGrid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .tileNumber {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  .tileDivider {
+    display: none;
+  }
+}
+
+/* Footer */
+.footerBlock {
+  background: transparent;
+  border-top: 1px solid var(--border-default);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.footerBlock p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .footerBlock {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .footerBlock p {
+    font-size: 0.95rem;
+  }
+}
