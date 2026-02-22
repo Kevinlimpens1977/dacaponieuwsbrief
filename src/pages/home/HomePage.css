@@ -1,0 +1,145 @@
+/* ======================== */
+/* HOME PAGE — AI Hub       */
+/* ======================== */
+
+/* Subtle AI-themed background */
+.homePageBg {
+  position: relative;
+  overflow: hidden;
+}
+
+/* AI dot-grid pattern */
+.homeAiGrid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, rgba(40, 96, 224, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Ensure content sits above the grid */
+.homePageBg>*:not(.homeAiGrid) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card stack container */
+.homeCardStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Navigation card — matches startCard style */
+.homeNavCard {
+  display: block;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: 1.25rem;
+  padding: 0;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.homeNavCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--primary);
+}
+
+.homeNavCard:active {
+  transform: translateY(-1px);
+}
+
+/* Card inner layout */
+.homeNavCardInner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+}
+
+/* Icon container */
+.homeNavIcon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: var(--primary-light);
+  color: var(--primary);
+  transition: background 0.18s ease;
+}
+
+.homeNavCard:hover .homeNavIcon {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
+
+/* Text block */
+.homeNavText {
+  flex: 1;
+  min-width: 0;
+}
+
+.homeNavText h3 {
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Arrow */
+.homeNavArrow {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.18s ease, color 0.18s ease;
+  display: flex;
+  align-items: center;
+}
+
+.homeNavCard:hover .homeNavArrow {
+  transform: translateX(4px);
+  color: var(--primary);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .homeAiGrid {
+    background-image:
+      radial-gradient(circle, rgba(47, 107, 255, 0.06) 1px, transparent 1px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .homeNavCardInner {
+    padding: 1.25rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .homeNavIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .homeNavIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .homeNavText h3 {
+    font-size: 1rem;
+  }
+}

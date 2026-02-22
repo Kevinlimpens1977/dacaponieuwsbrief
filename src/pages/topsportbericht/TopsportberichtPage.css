@@ -1,0 +1,320 @@
+/* ======================== */
+/* TOPSPORTBERICHT PAGE     */
+/* ======================== */
+
+.topsportPage {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ======================== */
+/* PITCH BACKGROUND (quiet) */
+/* ======================== */
+.pitchBg {
+    position: fixed;
+    inset: 0;
+    background: #5dab5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+.pitch {
+    position: relative;
+    width: 88%;
+    height: 78%;
+    max-width: 1100px;
+    max-height: 700px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
+}
+
+/* All pitch lines are very subtle */
+.pitchCenterLine {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.pitchCenterCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    background: transparent;
+}
+
+.pitchCenterDot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+}
+
+.pitchPenaltyLeft {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 15%;
+    height: 58%;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-left: none;
+    background: transparent;
+}
+
+.pitchPenaltyRight {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 15%;
+    height: 58%;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-right: none;
+    background: transparent;
+}
+
+.pitchGoalLeft {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 5.5%;
+    height: 28%;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-left: none;
+    background: transparent;
+}
+
+.pitchGoalRight {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 5.5%;
+    height: 28%;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-right: none;
+    background: transparent;
+}
+
+.pitchPenaltyDotLeft {
+    position: absolute;
+    top: 50%;
+    left: 11%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.pitchPenaltyDotRight {
+    position: absolute;
+    top: 50%;
+    right: 11%;
+    transform: translate(50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.pitchCorner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    background: transparent;
+}
+
+.pitchCornerTL {
+    top: -10px;
+    left: -10px;
+}
+
+.pitchCornerTR {
+    top: -10px;
+    right: -10px;
+}
+
+.pitchCornerBL {
+    bottom: -10px;
+    left: -10px;
+}
+
+.pitchCornerBR {
+    bottom: -10px;
+    right: -10px;
+}
+
+/* ======================== */
+/* CONTENT OVERLAY          */
+/* ======================== */
+.topsportContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    max-width: 860px;
+    width: 100%;
+}
+
+/* Headline */
+.topsportHeadline {
+    font-family: var(--font-accent);
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Three action buttons */
+.topsportActions {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+/* Individual thumbnail button */
+.topsportThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 2rem;
+    min-width: 160px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 1.25rem;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.topsportThumb:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary);
+}
+
+.topsportThumb:active {
+    transform: translateY(-1px);
+}
+
+/* Thumb icon container */
+.topsportThumbIcon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background: var(--primary-light);
+    color: var(--primary);
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.topsportThumb:hover .topsportThumbIcon {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* Thumb label */
+.topsportThumbLabel {
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+/* Description text */
+.topsportDescription {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    max-width: 640px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ======================== */
+/* RESPONSIVE               */
+/* ======================== */
+@media (max-width: 600px) {
+    .topsportContent {
+        padding: 2rem 1.25rem;
+    }
+
+    .topsportActions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .topsportThumb {
+        min-width: 200px;
+        width: 100%;
+        max-width: 280px;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .topsportThumbIcon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .topsportThumbIcon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .pitch {
+        width: 95%;
+        height: 70%;
+    }
+
+    .pitchCenterCircle {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .topsportThumb {
+        transition: none;
+    }
+}
