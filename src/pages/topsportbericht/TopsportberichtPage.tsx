@@ -15,6 +15,16 @@ export default function TopsportberichtPage() {
 
     return (
         <div className="topsportPage">
+            {/* Back to landing page */}
+            <div className="backButtonBar" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10 }}>
+                <a href="/" className="backButton backButton--dark" id="back-to-home-topsport">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Terug
+                </a>
+            </div>
+
             {/* Subtle football pitch background */}
             <div className="pitchBg" aria-hidden="true">
                 <div className="pitch">

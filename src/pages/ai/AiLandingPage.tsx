@@ -98,6 +98,16 @@ function ResourceTile({ title, description, href, gradient, accent, index }: Res
 export default function AiLandingPage() {
   return (
     <div className="pageBackground">
+      {/* Back to landing page */}
+      <div className="backButtonBar">
+        <a href="/" className="backButton" id="back-to-home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Terug
+        </a>
+      </div>
+
       {/* STARTPUNT CTA CARD - Main anchor */}
       <section className="lvoSection pageWrap">
         <a
