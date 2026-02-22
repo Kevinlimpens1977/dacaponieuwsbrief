@@ -27,35 +27,40 @@ export default function HomePage() {
 
                 {/* Two large buttons stacked */}
                 <div className="homeCardStack">
-                    <span className="homeNewBadge" aria-label="Nieuw">
-                        NIEUW <span className="homeNewArrow">→</span>
-                    </span>
-                    <a
-                        href="#/topsportbericht"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="homeNavCard homeNavCardNew"
-                        id="btn-topsport"
-                    >
-                        <div className="homeNavCardInner">
-                            <div className="homeNavIcon" aria-hidden="true">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                                    <path d="M2 12h20" />
-                                </svg>
-                            </div>
-                            <div className="homeNavText">
-                                <h3>Bericht van topsportleerling: nieuwsitem 26 februari 2026</h3>
-                            </div>
-                            <span className="homeNavArrow">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </span>
-                        </div>
-                    </a>
 
+                    {/* Row 1: NIEUW badge + topsport card */}
+                    <div className="homeCardRow">
+                        <span className="homeNewBadge" aria-label="Nieuw">
+                            NIEUW <span className="homeNewArrow">→</span>
+                        </span>
+                        <a
+                            href="#/topsportbericht"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="homeNavCard homeNavCardNew"
+                            id="btn-topsport"
+                        >
+                            <div className="homeNavCardInner">
+                                <div className="homeNavIcon" aria-hidden="true">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                        <path d="M2 12h20" />
+                                    </svg>
+                                </div>
+                                <div className="homeNavText">
+                                    <h3>Bericht van topsportleerling: nieuwsitem 26 februari 2026</h3>
+                                </div>
+                                <span className="homeNavArrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    {/* Row 2: AI introductie card */}
                     <a
                         href="#/ai-introductie"
                         target="_blank"

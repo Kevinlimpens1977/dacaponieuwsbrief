@@ -69,51 +69,51 @@
   gap: 1.25rem;
   max-width: 720px;
   margin: 0 auto;
-  position: relative;
 }
 
 /* ======================== */
-/* "NIEUW" ANIMATED BADGE   */
+/* CARD ROW — badge + card  */
+/* ======================== */
+.homeCardRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* The card inside the row takes remaining space */
+.homeCardRow .homeNavCard {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ======================== */
+/* "NIEUW" BADGE — GREEN    */
 /* ======================== */
 .homeNewBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  align-self: flex-start;
-  padding: 0.35rem 0.9rem;
+  gap: 0.3rem;
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #f97316, #ef4444);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
   color: #ffffff;
   font-family: var(--font-accent);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  animation: badgePulse 2s ease-in-out infinite;
-  box-shadow: 0 2px 12px rgba(249, 115, 22, 0.35);
-  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 10px rgba(22, 163, 74, 0.3);
+  white-space: nowrap;
 }
 
+/* Only the arrow moves — minimal animation */
 .homeNewArrow {
   display: inline-block;
-  animation: arrowBounce 1.2s ease-in-out infinite;
+  animation: arrowNudge 1.5s ease-in-out infinite;
 }
 
-@keyframes badgePulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.05);
-    opacity: 0.9;
-  }
-}
-
-@keyframes arrowBounce {
+@keyframes arrowNudge {
 
   0%,
   100% {
@@ -121,27 +121,23 @@
   }
 
   50% {
-    transform: translateX(4px);
+    transform: translateX(3px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .homeNewBadge {
-    animation: none;
-  }
-
   .homeNewArrow {
     animation: none;
   }
 }
 
-/* Highlight border for the "new" card */
+/* Green border accent for the "new" card */
 .homeNavCardNew {
-  border-color: #f97316;
+  border-color: #bbf7d0;
 }
 
 .homeNavCardNew:hover {
-  border-color: #ea580c;
+  border-color: #22c55e;
 }
 
 /* ======================== */
@@ -256,6 +252,14 @@
 /* MOBILE                   */
 /* ======================== */
 @media (max-width: 600px) {
+
+  /* Stack badge above card on mobile */
+  .homeCardRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
   .homeNavCardInner {
     padding: 1.25rem 1.25rem;
     gap: 1rem;
