@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import './TopsportberichtPage.css';
 
-// Firebase Storage public URLs
-const STORAGE_BASE =
-    'https://firebasestorage.googleapis.com/v0/b/dacapo-toolbox.firebasestorage.app/o/nieuwsbriefdocumenten%2F';
-const MEDIA_SUFFIX = '?alt=media';
-
-const VIDEO_URL = `${STORAGE_BASE}IkSpeelNietAlleen.mp4${MEDIA_SUFFIX}`;
-const PDF_URL = `${STORAGE_BASE}Topsportleerling%20en%20AI.pdf${MEDIA_SUFFIX}`;
-const IMAGE_URL = `${STORAGE_BASE}infographic.jpg${MEDIA_SUFFIX}`;
+// Firebase Storage URLs (with auth tokens)
+const VIDEO_URL = 'https://firebasestorage.googleapis.com/v0/b/dacapo-toolbox.firebasestorage.app/o/nieuwsbriefdocumenten%2FIkSpeelNietAlleen.mp4?alt=media&token=fe406fc1-b307-40c3-99af-f1ecb875e1f8';
+const PDF_URL = 'https://firebasestorage.googleapis.com/v0/b/dacapo-toolbox.firebasestorage.app/o/nieuwsbriefdocumenten%2FTopsportleerling%20en%20AI.pdf?alt=media&token=123f845b-c6a3-4321-ac9f-a4e74be05eda';
+const IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/dacapo-toolbox.firebasestorage.app/o/nieuwsbriefdocumenten%2Finfographic.jpg?alt=media&token=685474e0-3a1a-4027-aae9-9116e469d006';
 
 type ModalType = 'video' | 'pdf' | 'image' | null;
 
