@@ -14,7 +14,7 @@ export default function HomePage() {
                 <div className="heroCard heroIntro">
                     <p>
                         Verzamelplek voor AI-gerelateerd nieuws, nieuwsitems en bronnen
-                        binnen LVO. Kies hieronder een onderwerp om te verkennen.
+                        binnen DaCapo. Kies hieronder een onderwerp om te verkennen.
                     </p>
                 </div>
             </header>
@@ -27,11 +27,14 @@ export default function HomePage() {
 
                 {/* Two large buttons stacked */}
                 <div className="homeCardStack">
+                    <span className="homeNewBadge" aria-label="Nieuw">
+                        NIEUW <span className="homeNewArrow">→</span>
+                    </span>
                     <a
                         href="#/topsportbericht"
                         target="_blank"
                         rel="noreferrer"
-                        className="homeNavCard"
+                        className="homeNavCard homeNavCardNew"
                         id="btn-topsport"
                     >
                         <div className="homeNavCardInner">
